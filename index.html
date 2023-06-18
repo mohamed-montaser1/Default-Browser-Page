@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Google</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      body {
+        background-color: rgb(30, 34, 41);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .container {
+        width: 80%;
+        height: 70vh;
+        text-align: center;
+        padding-top: 60px;
+        max-width: 90%;
+      }
+      .container .date {
+        font-size: 120px;
+        color: rgb(243, 238, 238);
+        margin-bottom: 20px;
+      }
+      @media (max-width: 1024px) {
+        .container .date {
+          font-size: 50px;
+        }
+      }
+      .container form {
+        width: 100%;
+        height: 60px;
+        max-width: 100%;
+      }
+      .container form input {
+        height: inherit;
+        width: 500px;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        padding: 0 20px;
+        color: rgb(243, 238, 238);
+        border: 1px solid rgb(243, 238, 238);
+        max-width: 100%;
+      }
+      .container form input::placeholder {
+        color: rgb(243, 238, 238);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="date">
+        <span id="hours">00</span>
+        :
+        <span id="minutes">00</span>
+        :
+        <span id="seconds">00</span>
+      </div>
+      <form
+        class="search-box"
+        action="https://www.google.com/search"
+        method="get"
+      >
+        <input
+          type="text"
+          placeholder="You Don't Have To Search...You Just The Best Programmer Ever!"
+          name="q"
+        />
+      </form>
+    </div>
+    <script>
+      let hours = document.getElementById("hours");
+      let minutes = document.getElementById("minutes");
+      let seconds = document.getElementById("seconds");
+      setInterval(() => {
+          let dateNow = new Date();
+          hours.innerHTML =
+          dateNow.getHours() < 10
+            ? `0${dateNow.getHours()}`
+            : dateNow.getHours();
+        minutes.innerHTML =
+          dateNow.getMinutes() < 10
+            ? `0${dateNow.getMinutes()}`
+            : dateNow.getMinutes();
+        seconds.innerHTML =
+          dateNow.getSeconds() < 10
+            ? `0${dateNow.getSeconds()}`
+            : dateNow.getSeconds();
+      }, 1000);
+    </script>
+  </body>
+</html>
